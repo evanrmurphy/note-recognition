@@ -15,7 +15,7 @@ var buildPath = webpackConfig.output.path
   , thisBranch = exec('git branch').output.split('\n')
                    .filter(function(branch) { return /^\*/.test(branch) })[0]
                    .replace('* ', '')
-  , keepers = ['.git', '.gitignore', 'node_modules', buildDir]
+  , keepers = ['.git', '.gitignore', 'node_modules', buildDir, 'LICENSE']
 
 function build() {
   exec(path.join(__dirname, 'build.js'))
