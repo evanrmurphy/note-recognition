@@ -17,6 +17,10 @@ var buildPath = webpackConfig.output.path
                    .replace('* ', '')
   , keepers = ['.git', '.gitignore', 'node_modules', buildDir]
 
+function build() {
+  exec(path.join(__dirname, 'build.js'))
+}
+
 function checkoutDeployBranch() {
   exec('git fetch origin gh-pages:gh-pages')
   exec('git checkout gh-pages --force')
@@ -42,6 +46,7 @@ function checkoutPreviousBranch() {
   exec('git checkout ' + thisBranch)
 }
 
+build()
 checkoutDeployBranch()
 removeAllButKeepers()
 extractBuild()
