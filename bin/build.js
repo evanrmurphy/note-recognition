@@ -33,7 +33,7 @@ function build() {
 
   var builtFilename = ls(buildPath).filter(isBuiltFilename)[0]
 
-  cp('index.html', buildPath)
+  cp(path.join(__dirname, '../src/index.html'), buildPath)
   sed('-i', buildFilenameRegex, builtFilename, buildPath + '/index.html')
 }
 
