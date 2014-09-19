@@ -12,6 +12,9 @@ var exec = shellJs.exec
 var buildPath = webpackConfig.output.path
   , buildDir = path.basename(buildPath)
   , thisCommit = exec('git rev-parse --verify HEAD').output.replace('\n', '')
+  , thisBranch = exec('git branch').output.split('\n')
+                   .filter(function(branch) { return /^\*/.test(branch) })[0]
+                   .replace('* ', '')
   , keepers = ['.git', '.gitignore', 'node_modules', buildDir]
 
 function checkoutDeployBranch() {
@@ -35,7 +38,12 @@ function deploy() {
   exec('git push origin gh-pages')
 }
 
+function checkoutPreviousBranch() {
+  exec('git checkout ' + thisBranch)
+}
+
 checkoutDeployBranch()
 removeAllButKeepers()
 extractBuild()
 deploy()
+checkoutPreviousBranch()
