@@ -6,6 +6,7 @@
     { "test": "echo \"Error: no test specified\" && exit 1"
     , "build": "./bin/build.js"
     , "deploy": "./bin/deploy.js"
+    , "dev": "./node_modules/.bin/webpack-dev-server --output-file 'main.js'"
     }
 , "repository":
     { "type": "git"
@@ -19,5 +20,6 @@
 , "devDependencies":
     { "shelljs": "~0.3.0"
     , "webpack": "~1.4.0-beta10"
+    , "webpack-dev-server": "~1.6.5"
     }
 }

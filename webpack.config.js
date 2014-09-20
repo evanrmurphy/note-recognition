@@ -7,4 +7,7 @@ module.exports =
       { path: path.join(__dirname, 'dist')
       , filename: 'main.[hash].js'
       }
+
+  , devServer:
+      { contentBase: path.join(__dirname, 'src') }
   }
