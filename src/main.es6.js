@@ -10,10 +10,15 @@ var App =
   ReactCreateClass
     ( { render:
           function() {
-            var testEs6 = 'with ES6 features'
-              , andReact = 'and React'
-            return ReactDOM.div
-                     ({},`Hello note recognition ${testEs6} ${andReact}!`)
+            var {svg, rect} = ReactDOM
+            return svg( {version: '1.1'
+                        ,baseProfile: 'full'
+                        ,width: 100
+                        ,height: 100
+                        ,xmlns: 'http://www.w3.org/2000/svg'
+                        }
+                      , rect({width: '100%', height: '100%', fill: 'black'})
+                      )
           }
       }
     )
