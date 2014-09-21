@@ -17,6 +17,8 @@
 , "bugs":
     { "url": "https://github.com/evanrmurphy/note-recognition/issues" }
 , "homepage": "https://github.com/evanrmurphy/note-recognition"
+, "dependencies":
+    { "react": "0.11.2" }
 , "devDependencies":
     { "shelljs": "~0.3.0"
     , "webpack": "~1.4.0-beta10"
