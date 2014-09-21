@@ -28,7 +28,9 @@ function checkoutDeployBranch() {
 
 function removeAllButKeepers() {
   function isntKeeper(_) { return keepers.indexOf(_) === -1 }
-  rm('-rf', ls('-A').filter(isntKeeper))
+  function gitRemoveFileOrDir(_) { exec('git rm -r ' + _) }
+
+  ls('-A').filter(isntKeeper).forEach(gitRemoveFileOrDir)
 }
 
 function extractBuild() {
