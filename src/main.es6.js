@@ -6,6 +6,8 @@ var ReactCreateClass = require('react/lib/ReactCompositeComponent').createClass
   , ReactRenderComponent = require('react/lib/ReactMount').renderComponent
   , ReactDOM = require('react/lib/ReactDOM')
 
+var Staff = require('./staff.es6.js')
+
 var App =
   ReactCreateClass
     ( { render:
@@ -13,11 +15,11 @@ var App =
             var {svg, rect} = ReactDOM
             return svg( {version: '1.1'
                         ,baseProfile: 'full'
-                        ,width: 100
-                        ,height: 100
+                        ,width: 500
+                        ,height: 500
                         ,xmlns: 'http://www.w3.org/2000/svg'
                         }
-                      , rect({width: '100%', height: '100%', fill: 'black'})
+                      , Staff()
                       )
           }
       }
