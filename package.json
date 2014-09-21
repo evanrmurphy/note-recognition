@@ -21,7 +21,5 @@
     { "shelljs": "~0.3.0"
     , "webpack": "~1.4.0-beta10"
     , "webpack-dev-server": "~1.6.5"
-    , "traceur": "~0.0.65"
-    , "traceur-loader": "~0.4.0"
     }
 }
