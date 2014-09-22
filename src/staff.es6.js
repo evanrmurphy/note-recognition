@@ -11,8 +11,10 @@ module.exports =
     ( { render:
           function() {
             var {svg, rect} = ReactDOM
+              , topSpacing = 10
+
             return svg( {}
-                      , range(0, 50, 10).map
+                      , range(0 + topSpacing, 50 + topSpacing, 10).map
                           ((y) => rect({y: y, width: '100%', height: 1
                                        ,fill: 'black'}))
                       , TrebleClef({scale: .15})
