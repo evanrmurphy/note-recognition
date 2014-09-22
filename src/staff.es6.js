@@ -15,7 +15,7 @@ module.exports =
                       , range(0, 50, 10).map
                           ((y) => rect({y: y, width: '100%', height: 1
                                        ,fill: 'black'}))
-                      , TrebleClef()
+                      , TrebleClef({scale: .15})
                       )
           }
       }
