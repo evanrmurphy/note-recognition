@@ -15,8 +15,7 @@ var App =
             var {svg, rect} = ReactDOM
             return svg( {version: '1.1'
                         ,baseProfile: 'full'
-                        ,width: 500
-                        ,height: 500
+                        ,width: '100%'
                         ,xmlns: 'http://www.w3.org/2000/svg'
                         }
                       , Staff()
