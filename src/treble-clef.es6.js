@@ -5,8 +5,9 @@ var ReactCreateClass = require('react/lib/ReactCompositeComponent').createClass
 
 module.exports =
   ReactCreateClass
-    ( { getDefaultProps:
-          () => ({scale: 1})
+    ( { getDefaultProps: function() {
+          return {scale: 1}
+        }
 
       , render:
           function() {
