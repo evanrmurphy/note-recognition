@@ -15,8 +15,8 @@ module.exports =
 
             return svg( {}
                       , range(0 + topSpacing, 50 + topSpacing, 10).map
-                          ((y) => rect({y: y, width: '100%', height: 1
-                                       ,fill: 'black'}))
+                          (y => rect({y: y, width: '100%', height: 1
+                                     ,fill: 'black'}))
                       , TrebleClef({scale: .15})
                       )
           }
