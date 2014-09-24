@@ -11,12 +11,16 @@ module.exports =
           return {}
         }
 
+      , handleClick: function(event) {
+          this.setState({currentAnswer: event.target.textContent})
+      }
+
       , render:
           function() {
             var {div, button} = ReactDOM
 
             return div( {}
-                      , pitchClasses.map(pc => button({}, pc))
+                      , pitchClasses.map(pc => button({onClick: this.handleClick}, pc))
                       )
           }
       }
