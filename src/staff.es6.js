@@ -9,17 +9,22 @@ var TrebleClef = require('./treble-clef.es6.js')
 
 module.exports =
   ReactCreateClass
-    ( { render:
+    ( { getDefaultProps: function() {
+          return {staffPosition: Math.floor(Math.random() * 7)}
+        }
+
+      , render:
           function() {
             var {svg, rect} = ReactDOM
               , topSpacing = 10
+              , staffPosition = this.props.staffPosition
 
             return svg( {}
                       , range(0 + topSpacing, 50 + topSpacing, 10).map
                           (y => rect({y, width: '100%', height: 1
                                      ,fill: 'black'}))
                       , TrebleClef({scale: .15})
-                      , WholeNote()
+                      , WholeNote({staffPosition})
                       )
           }
       }
