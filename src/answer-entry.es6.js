@@ -2,6 +2,7 @@
 
 var ReactCreateClass = require('react/lib/ReactCompositeComponent').createClass
   , ReactDOM = require('react/lib/ReactDOM')
+  , currentAnswer = require('./current-answer.es6.js')
 
 var pitchClasses = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
@@ -12,8 +13,8 @@ module.exports =
         }
 
       , handleClick: function(event) {
-          this.setState({currentAnswer: event.target.textContent})
-      }
+          currentAnswer().onNext(event.target.textContent)
+        }
 
       , render:
           function() {

@@ -8,6 +8,7 @@ var ReactCreateClass = require('react/lib/ReactCompositeComponent').createClass
 
 var Staff = require('./staff.es6.js')
   , AnswerEntry = require('./answer-entry.es6.js')
+  , currentAnswer = require('./current-answer.es6.js')
 
 var App =
   ReactCreateClass
@@ -27,3 +28,5 @@ var App =
     )
 
 ReactRenderComponent(App(), document.body)
+
+currentAnswer().subscribe(x => console.log(x))
