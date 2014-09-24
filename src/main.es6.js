@@ -7,6 +7,7 @@ var ReactCreateClass = require('react/lib/ReactCompositeComponent').createClass
   , ReactDOM = require('react/lib/ReactDOM')
 
 var Staff = require('./staff.es6.js')
+  , AnswerEntry = require('./answer-entry.es6.js')
 
 var App =
   ReactCreateClass
@@ -19,6 +20,7 @@ var App =
                         ,xmlns: 'http://www.w3.org/2000/svg'
                         }
                       , Staff()
+                      , AnswerEntry()
                       )
           }
       }
