@@ -16,7 +16,7 @@ var App =
   ReactCreateClass
     ( { render:
           function() {
-            var {svg, rect} = ReactDOM
+            var {svg} = ReactDOM
             return svg( {version: '1.1'
                         ,baseProfile: 'full'
                         ,width: '100%'
