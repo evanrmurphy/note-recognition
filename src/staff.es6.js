@@ -7,17 +7,19 @@ var ReactCreateClass = require('react/lib/ReactCompositeComponent').createClass
 var TrebleClef = require('./treble-clef.es6.js')
   , WholeNote = require('./whole-note.es6.js')
 
-module.exports =
+var pitchClasses = ['E', 'F', 'G', 'A', 'B', 'C', 'D']
+
+var Staff =
   ReactCreateClass
     ( { getDefaultProps: function() {
-          return {staffPosition: Math.floor(Math.random() * 7)}
+          return {pitchClass: pitchClasses[0]}
         }
 
       , render:
           function() {
             var {svg, rect} = ReactDOM
               , topSpacing = 10
-              , staffPosition = this.props.staffPosition
+              , staffPosition = pitchClasses.indexOf(this.props.pitchClass)
 
             return svg( {}
                       , range(0 + topSpacing, 50 + topSpacing, 10).map
@@ -29,3 +31,7 @@ module.exports =
           }
       }
     )
+
+Staff.pitchClasses = pitchClasses
+
+module.exports = Staff
