@@ -33,4 +33,4 @@ var App =
 
 ReactRenderComponent(App(), document.body)
 
-answers.subscribe(x => console.log(x))
+answers.subscribe(x => alert(`You answered: ${x}`))
