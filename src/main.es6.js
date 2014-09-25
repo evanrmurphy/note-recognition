@@ -11,8 +11,7 @@ var ReactCreateClass = require('react/lib/ReactCompositeComponent').createClass
 var Staff = require('./staff.es6.js')
   , AnswerEntry = require('./answer-entry.es6.js')
 
-var pitchClasses = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
-  , pitchClasses1 = new Rx.BehaviorSubject
+var pitchClasses = new Rx.BehaviorSubject
   , answers = new Rx.Subject
 
 var App =
@@ -26,7 +25,7 @@ var App =
                             ,width: '100%'
                             ,xmlns: 'http://www.w3.org/2000/svg'
                             }
-                           ,Staff({pitchClass: pitchClasses1.value})
+                           ,Staff({pitchClass: pitchClasses.value})
                            )
                       , AnswerEntry({onAnswer: answers.onNext.bind(answers)})
                       )
@@ -36,10 +35,10 @@ var App =
 
 
 answers.subscribe(function(answer) {
-  if (answer === pitchClasses1.value)
-    pitchClasses1.onNext(sample(pitchClasses))
+  if (answer === pitchClasses.value)
+    pitchClasses.onNext(sample(Staff.pitchClasses))
 })
 
-pitchClasses1.subscribe(() => ReactRenderComponent(App(), document.body))
+pitchClasses.subscribe(() => ReactRenderComponent(App(), document.body))
 
-pitchClasses1.onNext(sample(pitchClasses))
+pitchClasses.onNext(sample(Staff.pitchClasses))
