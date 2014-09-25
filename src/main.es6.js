@@ -6,11 +6,13 @@ var ReactCreateClass = require('react/lib/ReactCompositeComponent').createClass
   , ReactRenderComponent = require('react/lib/ReactMount').renderComponent
   , ReactDOM = require('react/lib/ReactDOM')
   , Rx = require('rx')
+  , sample = require('lodash.sample')
 
 var Staff = require('./staff.es6.js')
   , AnswerEntry = require('./answer-entry.es6.js')
 
-var answers = new Rx.Subject
+var pitchClasses = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+  , answers = new Rx.Subject
 
 var App =
   ReactCreateClass
@@ -23,7 +25,7 @@ var App =
                             ,width: '100%'
                             ,xmlns: 'http://www.w3.org/2000/svg'
                             }
-                           ,Staff()
+                           ,Staff({pitchClass: sample(pitchClasses)})
                            )
                       , AnswerEntry({onAnswer: answers.onNext.bind(answers)})
                       )
