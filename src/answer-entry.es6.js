@@ -2,18 +2,17 @@
 
 var ReactCreateClass = require('react/lib/ReactCompositeComponent').createClass
   , ReactDOM = require('react/lib/ReactDOM')
-  , currentAnswer = require('./current-answer.es6.js')
 
 var pitchClasses = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
 module.exports =
   ReactCreateClass
     ( { getDefaultProps: function() {
-          return {}
+          return {onAnswer: _ => null}
         }
 
       , handleClick: function(event) {
-          currentAnswer().onNext(event.target.textContent)
+          this.props.onAnswer(event.target.textContent)
         }
 
       , render:

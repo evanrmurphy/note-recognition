@@ -5,10 +5,12 @@ require('react')
 var ReactCreateClass = require('react/lib/ReactCompositeComponent').createClass
   , ReactRenderComponent = require('react/lib/ReactMount').renderComponent
   , ReactDOM = require('react/lib/ReactDOM')
+  , Rx = require('rx')
 
 var Staff = require('./staff.es6.js')
   , AnswerEntry = require('./answer-entry.es6.js')
-  , currentAnswer = require('./current-answer.es6.js')
+
+var currentAnswer = new Rx.Subject
 
 var App =
   ReactCreateClass
@@ -21,7 +23,8 @@ var App =
                         ,xmlns: 'http://www.w3.org/2000/svg'
                         }
                       , Staff()
-                      , AnswerEntry()
+                      , AnswerEntry(
+                          {onAnswer: currentAnswer.onNext.bind(currentAnswer)})
                       )
           }
       }
@@ -29,4 +32,4 @@ var App =
 
 ReactRenderComponent(App(), document.body)
 
-currentAnswer().subscribe(x => console.log(x))
+currentAnswer.subscribe(x => console.log(x))
