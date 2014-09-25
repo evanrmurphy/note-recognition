@@ -9,7 +9,7 @@ var TrebleClef = require('./treble-clef.es6.js')
 
 var pitchClasses = ['E', 'F', 'G', 'A', 'B', 'C', 'D']
 
-module.exports =
+var Staff =
   ReactCreateClass
     ( { getDefaultProps: function() {
           return {pitchClass: pitchClasses[0]}
@@ -31,3 +31,7 @@ module.exports =
           }
       }
     )
+
+Staff.pitchClasses = pitchClasses
+
+module.exports = Staff
