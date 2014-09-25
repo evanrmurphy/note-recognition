@@ -10,7 +10,7 @@ var ReactCreateClass = require('react/lib/ReactCompositeComponent').createClass
 var Staff = require('./staff.es6.js')
   , AnswerEntry = require('./answer-entry.es6.js')
 
-var currentAnswer = new Rx.Subject
+var answers = new Rx.Subject
 
 var App =
   ReactCreateClass
@@ -23,8 +23,7 @@ var App =
                         ,xmlns: 'http://www.w3.org/2000/svg'
                         }
                       , Staff()
-                      , AnswerEntry(
-                          {onAnswer: currentAnswer.onNext.bind(currentAnswer)})
+                      , AnswerEntry({onAnswer: answers.onNext.bind(answers)})
                       )
           }
       }
@@ -32,4 +31,4 @@ var App =
 
 ReactRenderComponent(App(), document.body)
 
-currentAnswer.subscribe(x => console.log(x))
+answers.subscribe(x => console.log(x))
