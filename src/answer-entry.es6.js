@@ -3,7 +3,9 @@
 var ReactCreateClass = require('react/lib/ReactCompositeComponent').createClass
   , ReactDOM = require('react/lib/ReactDOM')
 
-var pitchClasses = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+var Staff = require('./staff.es6.js')
+
+var pitchClassesSorted = Staff.pitchClasses.slice(0).sort()
 
 module.exports =
   ReactCreateClass
@@ -20,7 +22,8 @@ module.exports =
             var {div, button} = ReactDOM
 
             return div( {}
-                      , pitchClasses.map(pc => button({onClick: this.handleClick}, pc))
+                      , pitchClassesSorted.map
+                          (pc => button({onClick: this.handleClick}, pc))
                       )
           }
       }
