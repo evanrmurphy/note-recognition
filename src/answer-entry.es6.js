@@ -12,7 +12,9 @@ var pitchClassesSorted = Staff.pitchClasses.slice(0).sort()
 module.exports =
   ReactCreateClass
     ( { getDefaultProps: function() {
-          return {onAnswer: _ => null}
+          return { onAnswer: _ => null
+                 , markCorrect: null
+                 }
         }
 
       , handleClick: function(event) {
@@ -23,11 +25,12 @@ module.exports =
           function() {
             var {div, button} = ReactDOM
             return div( {}
-                      , pitchClassesSorted.map
-                          (pc => button({className: 'AnswerEntry-button'
-                                        ,onClick: this.handleClick
-                                        }
-                                       ,pc))
+                      , pitchClassesSorted.map(pc => {
+                          var className = 'AnswerEntry-button'
+                          if (this.props.markCorrect === pc)
+                            className += ' AnswerEntry-button--correct'
+                          return button({className, onClick: this.handleClick}, pc)
+                        })
                       )
           }
       }

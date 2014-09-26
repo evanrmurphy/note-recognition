@@ -3,3 +3,8 @@
   height: 50px;
   font-size: 20px;
 }
+
+.AnswerEntry-button--correct {
+  background-color: green;
+  color: white;
+}

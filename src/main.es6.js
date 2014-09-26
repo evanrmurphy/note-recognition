@@ -12,7 +12,10 @@ var Staff = require('./staff.es6.js')
   , AnswerEntry = require('./answer-entry.es6.js')
 
 var pitchClasses = new Rx.BehaviorSubject
-  , answers = new Rx.Subject
+  , answers = new Rx.BehaviorSubject
+  , last2PitchClasses =
+      pitchClasses.scan([null, null], ([_, last], current) => [last, current])
+  , lastPitchClass
 
 var App =
   ReactCreateClass
@@ -21,7 +24,8 @@ var App =
             var {div, svg} = ReactDOM
             return div( {}
                       , Staff({pitchClass: pitchClasses.value})
-                      , AnswerEntry({onAnswer: answers.onNext.bind(answers)})
+                      , AnswerEntry({onAnswer: answers.onNext.bind(answers)
+                                    ,markCorrect: answers.value === lastPitchClass ? answers.value : null})
                       )
           }
       }
@@ -34,5 +38,7 @@ answers.subscribe(function(answer) {
 })
 
 pitchClasses.subscribe(() => ReactRenderComponent(App(), document.body))
+answers.subscribe(() => ReactRenderComponent(App(), document.body))
+last2PitchClasses.subscribe(([last, _]) => lastPitchClass = last)
 
 pitchClasses.onNext(sample(Staff.pitchClasses))
