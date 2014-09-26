@@ -24,7 +24,7 @@ var App =
     ( { render:
           function() {
             var {pitchClass, onAnswer, markCorrect} = this.props
-            var {div} = ReactDOM
+              , {div} = ReactDOM
             return div( {}
                       , Staff({pitchClass})
                       , AnswerEntry({ onAnswer, markCorrect})
