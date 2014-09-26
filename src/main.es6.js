@@ -23,10 +23,10 @@ var App =
   ReactCreateClass
     ( { render:
           function() {
-            var {onAnswer} = this.props
+            var {pitchClass, onAnswer} = this.props
             var {div} = ReactDOM
             return div( {}
-                      , Staff({pitchClass: pitchClasses.value})
+                      , Staff({pitchClass})
                       , AnswerEntry
                           ( { onAnswer
                             , markCorrect: answers.value === lastPitchClass
@@ -46,7 +46,8 @@ answers.subscribe(function(answer) {
 
 pitchClasses.merge(answers).subscribe
   (() => ReactRenderComponent
-           (App( { onAnswer: answers.onNext.bind(answers)
+           (App( { pitchClass: pitchClasses.value
+                 , onAnswer: answers.onNext.bind(answers)
                  }
                )
            , document.body))
