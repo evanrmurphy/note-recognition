@@ -28,5 +28,7 @@
     , "webpack": "~1.4.0-beta10"
     , "webpack-dev-server": "~1.6.5"
     , "webpack-traceur-loader": "~0.3.0"
+    , "style-loader": "~0.8.0"
+    , "css-loader": "~0.9.0"
     }
 }

@@ -15,6 +15,8 @@ module.exports =
 
   , module:
       { loaders:
-          [ {test: /\.es6\.js$/, loader: 'webpack-traceur'} ]
+          [ {test: /\.es6\.js$/, loader: 'webpack-traceur'}
+          , {test: /\.css$/, loader: 'style!css'}
+          ]
       }
   }
