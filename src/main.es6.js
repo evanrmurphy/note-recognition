@@ -24,13 +24,14 @@ answers.subscribe(function(answer) {
 
 pitchClasses.merge(answers).subscribe
   (() => ReactRenderComponent
-           (App( { pitchClass: pitchClasses.value
-                 , onAnswer: answers.onNext.bind(answers)
-                 , lastAnswer: answers.value
-                 , isLastAnswerCorrect: answers.value === lastPitchClass
-                 }
-               )
-           , document.body))
+           ( App( { pitchClass: pitchClasses.value
+                  , onAnswer: answers.onNext.bind(answers)
+                  , lastAnswer: answers.value
+                  , isLastAnswerCorrect: answers.value === lastPitchClass
+                  }
+                )
+           , document.body
+           ))
 last2PitchClasses.subscribe(([last, _]) => lastPitchClass = last)
 pitchClasses.subscribe
   (pc => otherPitchClasses = without(Staff.pitchClasses, pitchClasses.value))
