@@ -2,15 +2,13 @@
 
 require('react')
 
-var ReactCreateClass = require('react/lib/ReactCompositeComponent').createClass
-  , ReactRenderComponent = require('react/lib/ReactMount').renderComponent
-  , ReactDOM = require('react/lib/ReactDOM')
+var ReactRenderComponent = require('react/lib/ReactMount').renderComponent
   , Rx = require('rx')
   , sample = require('lodash.sample')
   , without = require('lodash.without')
 
-var Staff = require('./staff.es6.js')
-  , AnswerEntry = require('./answer-entry.es6.js')
+var App = require('./app.es6.js')
+  , Staff = require('./staff.es6.js')
 
 var pitchClasses = new Rx.BehaviorSubject
   , answers = new Rx.BehaviorSubject
@@ -18,21 +16,6 @@ var pitchClasses = new Rx.BehaviorSubject
       pitchClasses.scan([null, null], ([_, last], current) => [last, current])
   , lastPitchClass
   , otherPitchClasses
-
-var App =
-  ReactCreateClass
-    ( { render:
-          function() {
-            var {pitchClass, onAnswer, markCorrect} = this.props
-              , {div} = ReactDOM
-            return div( {}
-                      , Staff({pitchClass})
-                      , AnswerEntry({ onAnswer, markCorrect})
-                      )
-          }
-      }
-    )
-
 
 answers.subscribe(function(answer) {
   if (answer === pitchClasses.value)
