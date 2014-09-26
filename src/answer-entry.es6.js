@@ -3,6 +3,8 @@
 var ReactCreateClass = require('react/lib/ReactCompositeComponent').createClass
   , ReactDOM = require('react/lib/ReactDOM')
 
+require('./answer-entry.css')
+
 var Staff = require('./staff.es6.js')
 
 var pitchClassesSorted = Staff.pitchClasses.slice(0).sort()
@@ -23,7 +25,10 @@ module.exports =
 
             return div( {}
                       , pitchClassesSorted.map
-                          (pc => button({onClick: this.handleClick}, pc))
+                          (pc => button({className: 'AnswerEntry-button'
+                                        ,onClick: this.handleClick
+                                        }
+                                        , pc))
                       )
           }
       }
