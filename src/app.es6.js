@@ -11,7 +11,7 @@ module.exports =
     ( { render:
           function() {
             var {pitchClass, onAnswer
-                ,lastAnswer,isLastAnswerCorrect} = this.props
+                ,lastAnswer, isLastAnswerCorrect} = this.props
               , {div} = ReactDOM
 
             return div( {}
