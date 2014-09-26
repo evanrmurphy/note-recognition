@@ -26,9 +26,8 @@ pitchClasses.merge(answers).subscribe
   (() => ReactRenderComponent
            (App( { pitchClass: pitchClasses.value
                  , onAnswer: answers.onNext.bind(answers)
-                 , markCorrect: answers.value === lastPitchClass
-                                  ? answers.value
-                                  : null
+                 , lastAnswer: answers.value
+                 , isLastAnswerCorrect: answers.value === lastPitchClass
                  }
                )
            , document.body))

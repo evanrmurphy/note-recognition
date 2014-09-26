@@ -13,7 +13,8 @@ module.exports =
   ReactCreateClass
     ( { getDefaultProps: function() {
           return { onAnswer: _ => null
-                 , markCorrect: null
+                 , lastAnswer: null
+                 , isLastAnswerCorrect: null
                  }
         }
 
@@ -23,12 +24,16 @@ module.exports =
 
       , render:
           function() {
-            var {div, button} = ReactDOM
+            var {lastAnswer, isLastAnswerCorrect} = this.props
+              , {div, button} = ReactDOM
+
             return div( {}
                       , pitchClassesSorted.map(pc => {
                           var className = 'AnswerEntry-button'
-                          if (this.props.markCorrect === pc)
-                            className += ' AnswerEntry-button--correct'
+                          if (lastAnswer === pc && isLastAnswerCorrect != null)
+                            className += isLastAnswerCorrect
+                                           ? ' AnswerEntry-button--correct'
+                                           : ' AnswerEntry-button--incorrect'
                           return button({className, onClick: this.handleClick}, pc)
                         })
                       )

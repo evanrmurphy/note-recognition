@@ -8,3 +8,8 @@
   background-color: green;
   color: white;
 }
+
+.AnswerEntry-button--incorrect {
+  background-color: red;
+  color: white;
+}
