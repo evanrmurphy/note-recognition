@@ -23,7 +23,7 @@ var App =
   ReactCreateClass
     ( { render:
           function() {
-            var {div, svg} = ReactDOM
+            var {div} = ReactDOM
             return div( {}
                       , Staff({pitchClass: pitchClasses.value})
                       , AnswerEntry
