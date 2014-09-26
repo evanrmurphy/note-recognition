@@ -39,8 +39,7 @@ answers.subscribe(function(answer) {
     pitchClasses.onNext(sample(otherPitchClasses))
 })
 
-pitchClasses.subscribe(() => ReactRenderComponent(App(), document.body))
-answers.subscribe(() => ReactRenderComponent(App(), document.body))
+pitchClasses.merge(answers).subscribe(() => ReactRenderComponent(App(), document.body))
 last2PitchClasses.subscribe(([last, _]) => lastPitchClass = last)
 pitchClasses.subscribe
   (pc => otherPitchClasses = without(Staff.pitchClasses, pitchClasses.value))
