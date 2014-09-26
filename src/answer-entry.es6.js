@@ -22,13 +22,12 @@ module.exports =
       , render:
           function() {
             var {div, button} = ReactDOM
-
             return div( {}
                       , pitchClassesSorted.map
                           (pc => button({className: 'AnswerEntry-button'
                                         ,onClick: this.handleClick
                                         }
-                                        , pc))
+                                       ,pc))
                       )
           }
       }
