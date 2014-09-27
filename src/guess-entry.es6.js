@@ -18,13 +18,14 @@ module.exports =
                  }
         }
 
-      , handleClick: function(event) {
+      , onClick: function(event) {
           this.props.onGuess(event.target.textContent)
         }
 
       , render:
           function() {
             var {lastGuess, isLastGuessCorrect} = this.props
+              , {onClick} = this
               , {div, button} = ReactDOM
 
             return div( {}
@@ -34,7 +35,7 @@ module.exports =
                             className += isLastGuessCorrect
                                            ? ' GuessEntry-button--correct'
                                            : ' GuessEntry-button--incorrect'
-                          return button({className, onClick: this.handleClick}, note)
+                          return button({className, onClick}, note)
                         })
                       )
           }
