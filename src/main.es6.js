@@ -10,30 +10,29 @@ var ReactRenderComponent = require('react/lib/ReactMount').renderComponent
 var App = require('./app.es6.js')
   , Staff = require('./staff.es6.js')
 
-var pitchClasses = new Rx.BehaviorSubject
+var notes = new Rx.BehaviorSubject
   , answers = new Rx.BehaviorSubject
-  , last2PitchClasses =
-      pitchClasses.scan([null, null], ([_, last], current) => [last, current])
-  , lastPitchClass
-  , otherPitchClasses
+  , last2Notes =
+      notes.scan([null, null], ([_, last], current) => [last, current])
+  , lastNote
+  , otherNotes
 
 answers.subscribe(function(answer) {
-  if (answer === pitchClasses.value)
-    pitchClasses.onNext(sample(otherPitchClasses))
+  if (answer === notes.value)
+    notes.onNext(sample(otherNotes))
 })
 
-pitchClasses.merge(answers).subscribe
+notes.merge(answers).subscribe
   (() => ReactRenderComponent
-           ( App( { pitchClass: pitchClasses.value
+           ( App( { note: notes.value
                   , onAnswer: answers.onNext.bind(answers)
                   , lastAnswer: answers.value
-                  , isLastAnswerCorrect: answers.value === lastPitchClass
+                  , isLastAnswerCorrect: answers.value === lastNote
                   }
                 )
            , document.body
            ))
-last2PitchClasses.subscribe(([last, _]) => lastPitchClass = last)
-pitchClasses.subscribe
-  (pc => otherPitchClasses = without(Staff.pitchClasses, pitchClasses.value))
+last2Notes.subscribe(([last, _]) => lastNote = last)
+notes.subscribe(_ => otherNotes = without(Staff.notes, notes.value))
 
-pitchClasses.onNext(sample(Staff.pitchClasses))
+notes.onNext(sample(Staff.notes))

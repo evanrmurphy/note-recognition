@@ -7,7 +7,7 @@ require('./answer-entry.css')
 
 var Staff = require('./staff.es6.js')
 
-var pitchClassesSorted = Staff.pitchClasses.slice(0).sort()
+var sortedNotes = Staff.notes.slice(0).sort()
 
 module.exports =
   ReactCreateClass
@@ -28,13 +28,13 @@ module.exports =
               , {div, button} = ReactDOM
 
             return div( {}
-                      , pitchClassesSorted.map(pc => {
+                      , sortedNotes.map(note => {
                           var className = 'AnswerEntry-button'
-                          if (lastAnswer === pc && isLastAnswerCorrect != null)
+                          if (lastAnswer === note && isLastAnswerCorrect != null)
                             className += isLastAnswerCorrect
                                            ? ' AnswerEntry-button--correct'
                                            : ' AnswerEntry-button--incorrect'
-                          return button({className, onClick: this.handleClick}, pc)
+                          return button({className, onClick: this.handleClick}, note)
                         })
                       )
           }

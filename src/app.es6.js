@@ -10,12 +10,12 @@ module.exports =
   ReactCreateClass
     ( { render:
           function() {
-            var {pitchClass, onAnswer
+            var {note, onAnswer
                 ,lastAnswer, isLastAnswerCorrect} = this.props
               , {div} = ReactDOM
 
             return div( {}
-                      , Staff({pitchClass})
+                      , Staff({note})
                       , AnswerEntry({onAnswer, lastAnswer, isLastAnswerCorrect})
                       )
           }
