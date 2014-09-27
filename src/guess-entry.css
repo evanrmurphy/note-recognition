@@ -1,15 +1,15 @@
-.AnswerEntry-button {
+.GuessEntry-button {
   width: 25%;
   height: 50px;
   font-size: 20px;
 }
 
-.AnswerEntry-button--correct {
+.GuessEntry-button--correct {
   background-color: green;
   color: white;
 }
 
-.AnswerEntry-button--incorrect {
+.GuessEntry-button--incorrect {
   background-color: red;
   color: white;
 }

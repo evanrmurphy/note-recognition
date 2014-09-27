@@ -10,30 +10,29 @@ var ReactRenderComponent = require('react/lib/ReactMount').renderComponent
 var App = require('./app.es6.js')
   , Staff = require('./staff.es6.js')
 
-var pitchClasses = new Rx.BehaviorSubject
-  , answers = new Rx.BehaviorSubject
-  , last2PitchClasses =
-      pitchClasses.scan([null, null], ([_, last], current) => [last, current])
-  , lastPitchClass
-  , otherPitchClasses
+var notes = new Rx.BehaviorSubject
+  , guesses = new Rx.BehaviorSubject
+  , last2Notes =
+      notes.scan([null, null], ([_, last], current) => [last, current])
+  , lastNote
+  , otherNotes
 
-answers.subscribe(function(answer) {
-  if (answer === pitchClasses.value)
-    pitchClasses.onNext(sample(otherPitchClasses))
+guesses.subscribe(function(guess) {
+  if (guess === notes.value)
+    notes.onNext(sample(otherNotes))
 })
 
-pitchClasses.merge(answers).subscribe
+notes.merge(guesses).subscribe
   (() => ReactRenderComponent
-           ( App( { pitchClass: pitchClasses.value
-                  , onAnswer: answers.onNext.bind(answers)
-                  , lastAnswer: answers.value
-                  , isLastAnswerCorrect: answers.value === lastPitchClass
+           ( App( { note: notes.value
+                  , onGuess: guesses.onNext.bind(guesses)
+                  , lastGuess: guesses.value
+                  , isLastGuessCorrect: guesses.value === lastNote
                   }
                 )
            , document.body
            ))
-last2PitchClasses.subscribe(([last, _]) => lastPitchClass = last)
-pitchClasses.subscribe
-  (pc => otherPitchClasses = without(Staff.pitchClasses, pitchClasses.value))
+last2Notes.subscribe(([last, _]) => lastNote = last)
+notes.subscribe(_ => otherNotes = without(Staff.notes, notes.value))
 
-pitchClasses.onNext(sample(Staff.pitchClasses))
+notes.onNext(sample(Staff.notes))
