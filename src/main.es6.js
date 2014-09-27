@@ -11,23 +11,23 @@ var App = require('./app.es6.js')
   , Staff = require('./staff.es6.js')
 
 var notes = new Rx.BehaviorSubject
-  , answers = new Rx.BehaviorSubject
+  , guesses = new Rx.BehaviorSubject
   , last2Notes =
       notes.scan([null, null], ([_, last], current) => [last, current])
   , lastNote
   , otherNotes
 
-answers.subscribe(function(answer) {
-  if (answer === notes.value)
+guesses.subscribe(function(guess) {
+  if (guess === notes.value)
     notes.onNext(sample(otherNotes))
 })
 
-notes.merge(answers).subscribe
+notes.merge(guesses).subscribe
   (() => ReactRenderComponent
            ( App( { note: notes.value
-                  , onAnswer: answers.onNext.bind(answers)
-                  , lastAnswer: answers.value
-                  , isLastAnswerCorrect: answers.value === lastNote
+                  , onGuess: guesses.onNext.bind(guesses)
+                  , lastGuess: guesses.value
+                  , isLastGuessCorrect: guesses.value === lastNote
                   }
                 )
            , document.body

@@ -4,19 +4,19 @@ var ReactCreateClass = require('react/lib/ReactCompositeComponent').createClass
   , ReactDOM = require('react/lib/ReactDOM')
 
 var Staff = require('./staff.es6.js')
-  , AnswerEntry = require('./answer-entry.es6.js')
+  , GuessEntry = require('./guess-entry.es6.js')
 
 module.exports =
   ReactCreateClass
     ( { render:
           function() {
-            var {note, onAnswer
-                ,lastAnswer, isLastAnswerCorrect} = this.props
+            var {note, onGuess
+                ,lastGuess, isLastGuessCorrect} = this.props
               , {div} = ReactDOM
 
             return div( {}
                       , Staff({note})
-                      , AnswerEntry({onAnswer, lastAnswer, isLastAnswerCorrect})
+                      , GuessEntry({onGuess, lastGuess, isLastGuessCorrect})
                       )
           }
       }
