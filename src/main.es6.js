@@ -11,25 +11,23 @@ var App = require('./app.es6.js')
   , Staff = require('./staff.es6.js')
 
 var notes = new Rx.BehaviorSubject
-  , guesses
-  , correctGuesses
-  , otherNotes
-  , renderApp = () => {
-      ReactRenderComponent
-        ( App( { note: notes.value
-               , onGuess: guesses.onNext.bind(guesses)
-               , lastGuess: guesses.value
-               , isLastGuessCorrect: guesses.value === notes.value
-               }
-             )
-        , document.body
-        )
-    }
 
 notes.subscribe(_ => {
-  otherNotes = without(Staff.notes, notes.value)
-  guesses = new Rx.BehaviorSubject
-  correctGuesses = guesses.skip(1).filter(g => g === notes.value)
+  var otherNotes = without(Staff.notes, notes.value)
+    , guesses = new Rx.BehaviorSubject
+    , correctGuesses = guesses.skip(1).filter(g => g === notes.value)
+    , renderApp = () => {
+        ReactRenderComponent
+          ( App( { note: notes.value
+                 , onGuess: guesses.onNext.bind(guesses)
+                 , lastGuess: guesses.value
+                 , isLastGuessCorrect: guesses.value === notes.value
+                 }
+               )
+          , document.body
+          )
+      }
+
   correctGuesses.subscribe
     ( _ => {
         setTimeout(() => {
