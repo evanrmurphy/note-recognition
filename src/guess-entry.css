@@ -10,6 +10,6 @@
 }
 
 .GuessEntry-button--incorrect {
-  background-color: red;
+  background-color: #f00000;
   color: white;
 }
