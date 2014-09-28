@@ -11,28 +11,34 @@ var App = require('./app.es6.js')
   , Staff = require('./staff.es6.js')
 
 var notes = new Rx.BehaviorSubject
-  , guesses = new Rx.BehaviorSubject
-  , last2Notes =
-      notes.scan([null, null], ([_, last], current) => [last, current])
-  , lastNote
+  , guesses
+  , correctGuesses
   , otherNotes
+  , renderApp = () => {
+      ReactRenderComponent
+        ( App( { note: notes.value
+               , onGuess: guesses.onNext.bind(guesses)
+               , lastGuess: guesses.value
+               , isLastGuessCorrect: guesses.value === notes.value
+               }
+             )
+        , document.body
+        )
+    }
 
-guesses.subscribe(function(guess) {
-  if (guess === notes.value)
-    notes.onNext(sample(otherNotes))
+notes.subscribe(_ => {
+  otherNotes = without(Staff.notes, notes.value)
+  guesses = new Rx.BehaviorSubject
+  correctGuesses = guesses.skip(1).filter(g => g === notes.value)
+  correctGuesses.subscribe
+    ( _ => {
+        setTimeout(() => {
+          guesses.onCompleted()
+          notes.onNext(sample(otherNotes))
+        }, 1000)
+      }
+    )
+  notes.merge(guesses).subscribe(renderApp, null, renderApp)
 })
-
-notes.merge(guesses).subscribe
-  (() => ReactRenderComponent
-           ( App( { note: notes.value
-                  , onGuess: guesses.onNext.bind(guesses)
-                  , lastGuess: guesses.value
-                  , isLastGuessCorrect: guesses.value === lastNote
-                  }
-                )
-           , document.body
-           ))
-last2Notes.subscribe(([last, _]) => lastNote = last)
-notes.subscribe(_ => otherNotes = without(Staff.notes, notes.value))
 
 notes.onNext(sample(Staff.notes))
