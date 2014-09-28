@@ -16,7 +16,7 @@ notes.subscribe(_ => {
   var otherNotes = without(Staff.notes, notes.value)
     , guesses = new Rx.BehaviorSubject
     , correctGuesses = guesses.skip(1).filter(g => g === notes.value)
-    , renderApp = () => {
+    , renderApp = () =>
         ReactRenderComponent
           ( App( { note: notes.value
                  , onGuess: guesses.onNext.bind(guesses)
@@ -26,15 +26,12 @@ notes.subscribe(_ => {
                )
           , document.body
           )
-      }
 
   correctGuesses.subscribe
-    ( _ => {
-        setTimeout(() => {
-          guesses.onCompleted()
-          notes.onNext(sample(otherNotes))
-        }, 1000)
-      }
+    ( _ => setTimeout(() => {
+             guesses.onCompleted()
+             notes.onNext(sample(otherNotes))
+           }, 1000)
     )
   notes.merge(guesses).subscribe(renderApp, null, renderApp)
 })
