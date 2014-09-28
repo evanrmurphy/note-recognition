@@ -33,7 +33,8 @@ notes.subscribe(_ => {
              notes.onNext(sample(otherNotes))
            }, 1000)
     )
-  notes.merge(guesses).subscribe(renderApp, null, renderApp)
+  renderApp()
+  guesses.subscribe(renderApp, null, renderApp)
 })
 
 notes.onNext(sample(Staff.notes))
