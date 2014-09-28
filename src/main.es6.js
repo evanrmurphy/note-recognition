@@ -12,15 +12,13 @@ var App = require('./app.es6.js')
 
 var notes = new Rx.BehaviorSubject
   , guesses = new Rx.BehaviorSubject
+  , correctGuesses = guesses.filter(g => g === notes.value)
   , last2Notes =
       notes.scan([null, null], ([_, last], current) => [last, current])
   , lastNote
   , otherNotes
 
-guesses.subscribe(function(guess) {
-  if (guess === notes.value)
-    notes.onNext(sample(otherNotes))
-})
+correctGuesses.subscribe(_ => notes.onNext(sample(otherNotes)))
 
 notes.merge(guesses).subscribe
   (() => ReactRenderComponent
