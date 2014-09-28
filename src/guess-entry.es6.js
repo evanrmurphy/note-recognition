@@ -27,15 +27,25 @@ module.exports =
             var {guess, isGuessCorrect} = this.props
               , {onClick} = this
               , {div, button} = ReactDOM
+              , checkMark = '\u2714'
+              , xMark = '\u2717'
 
             return div( {}
                       , sortedNotes.map(note => {
                           var className = 'GuessEntry-button'
-                          if (guess === note && isGuessCorrect != null)
-                            className += isGuessCorrect
-                                           ? ' GuessEntry-button--correct'
-                                           : ' GuessEntry-button--incorrect'
-                          return button({className, onClick}, note)
+                            , text = note
+
+                          if (guess === note && isGuessCorrect != null) {
+                            if (isGuessCorrect) {
+                              className += ' GuessEntry-button--correct'
+                              text = checkMark
+                            } else {
+                              className += ' GuessEntry-button--incorrect'
+                              text = xMark
+                            }
+                          }
+
+                          return button({className, onClick}, text)
                         })
                       )
           }
