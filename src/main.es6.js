@@ -15,14 +15,19 @@ var notes = new Rx.BehaviorSubject
 notes.subscribe(_ => {
   var guesses = new Rx.BehaviorSubject
     , correctGuesses = guesses.skip(1).filter(g => g === notes.value)
-    , renderApp = () => ReactRenderComponent
-        ( App({ note: notes.value
-              , onGuess: guesses.onNext.bind(guesses)
-              , lastGuess: guesses.value
-              , isLastGuessCorrect: guesses.value === notes.value
-              })
-        , document.body
-        )
+
+  var renderApp = () => {
+    var note = notes.value
+      , guess = guesses.value
+      , isGuessCorrect = guess === note
+      , onGuess = guess => {
+          if (!isGuessCorrect) guesses.onNext(guess)
+        }
+    ReactRenderComponent( App({note, guess, isGuessCorrect, onGuess})
+                        , document.body
+                        )
+  }
+
   renderApp()
   guesses.subscribe(renderApp, null, renderApp)
   correctGuesses.subscribe(_ =>

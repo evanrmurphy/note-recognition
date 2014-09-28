@@ -13,8 +13,8 @@ module.exports =
   ReactCreateClass
     ( { getDefaultProps: function() {
           return { onGuess: _ => null
-                 , lastGuess: null
-                 , isLastGuessCorrect: null
+                 , guess: null
+                 , isGuessCorrect: null
                  }
         }
 
@@ -24,15 +24,15 @@ module.exports =
 
       , render:
           function() {
-            var {lastGuess, isLastGuessCorrect} = this.props
+            var {guess, isGuessCorrect} = this.props
               , {onClick} = this
               , {div, button} = ReactDOM
 
             return div( {}
                       , sortedNotes.map(note => {
                           var className = 'GuessEntry-button'
-                          if (lastGuess === note && isLastGuessCorrect != null)
-                            className += isLastGuessCorrect
+                          if (guess === note && isGuessCorrect != null)
+                            className += isGuessCorrect
                                            ? ' GuessEntry-button--correct'
                                            : ' GuessEntry-button--incorrect'
                           return button({className, onClick}, note)
