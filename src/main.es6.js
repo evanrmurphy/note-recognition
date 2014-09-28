@@ -13,8 +13,7 @@ var App = require('./app.es6.js')
 var notes = new Rx.BehaviorSubject
   , guesses = new Rx.BehaviorSubject
   , correctGuesses = guesses.filter(g => g === notes.value)
-  , last2Notes =
-      notes.scan([null, null], ([_, last], current) => [last, current])
+  , last2Notes = notes.scan([], ([_, last], current) => [last, current])
   , lastNote
   , otherNotes
 
