@@ -1,5 +1,8 @@
 'use strict'
 
+// Don't want to `require` all of React (prefer to only include the specific
+// parts of it that we need), but removing this line causes an error in React's
+// code, so keep this for now with the hope of being able to remove it later
 require('react')
 
 var ReactRenderComponent = require('react/lib/ReactMount').renderComponent
