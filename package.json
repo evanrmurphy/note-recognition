@@ -23,6 +23,9 @@
     , "lodash.sample": "2.4.1"
     , "lodash.without": "2.4.1"
     , "rx": "2.3.10"
+    , "suitcss": "0.6.0"
+    , "suitcss-utils": "git+https://github.com/aaronj1335/utils.git#4d7c5345ec44d0ddbeab59c0f73889e161c47da0"
+
     }
 , "devDependencies":
     { "shelljs": "~0.3.0"
@@ -31,5 +34,11 @@
     , "webpack-traceur-loader": "~0.3.0"
     , "style-loader": "~0.8.0"
     , "css-loader": "~0.9.0"
+    , "rework": "~1.0.1"
+    , "rework-calc": "~1.1.0"
+    , "rework-npm": "~1.0.0"
+    , "rework-custom-media": "~0.2.0"
+    , "rework-vars": "~3.1.1"
+    , "rework-visit": "~1.0.0"
     }
 }
