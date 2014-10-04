@@ -30,9 +30,7 @@ module.exports =
           function() {
             var {guess, isGuessCorrect} = this.props
               , {onClick} = this
-              , {div, button} = ReactDOM
-              , checkMark = '\u2714'
-              , xMark = '\u2717'
+              , {div, button, span} = ReactDOM
 
             return div( {className: 'Grid--withGutter Grid--withVerticalGutter'}
                       , sortedNotes.map(note => {
@@ -43,10 +41,10 @@ module.exports =
                           if (guess === note && isGuessCorrect != null) {
                             if (isGuessCorrect) {
                               className += ' GuessEntry-button--correct'
-                              text = checkMark
+                              text = span({className: 'fa fa-check'})
                             } else {
                               className += ' GuessEntry-button--incorrect'
-                              text = xMark
+                              text = span({className: 'fa fa-times'})
                             }
                           }
 
