@@ -15,7 +15,7 @@ module.exports =
             var {note, guess, onGuess, isGuessCorrect} = this.props
               , {div} = ReactDOM
 
-            return div( {className: 'App'}
+            return div( {className: 'App Grid-cell--center'}
                       , Staff({note})
                       , GuessEntry({guess, onGuess, isGuessCorrect})
                       )
