@@ -36,7 +36,8 @@ module.exports =
 
             return div( {className: 'Grid--withGutter Grid--withVerticalGutter'}
                       , sortedNotes.map(note => {
-                          var className = 'Button Button--default GuessEntry-button u-sizeFillAlt'
+                          var className = 'Button Button--default'
+                                          + ' GuessEntry-button u-sizeFillAlt'
                             , text = note
 
                           if (guess === note && isGuessCorrect != null) {
