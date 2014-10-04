@@ -11,17 +11,10 @@ module.exports =
   { entry: path.join(__dirname, 'src/main.es6.js')
 
   , resolve:
-    { packageMains:
-      [ 'webpack'
-      , 'browser'
-      , 'web'
-      , 'browserify'
-      , [ 'jam', 'main' ]
-      , 'style'
-      , 'main'
-      ]
-    }
-
+      { packageMains:
+          ['webpack', 'browser', 'web', 'browserify', ['jam', 'main']
+          ,'style' ,'main']
+      }
 
   , output:
       { path: path.join(__dirname, 'dist')
