@@ -24,8 +24,6 @@
     , "lodash.without": "2.4.1"
     , "rx": "2.3.10"
     , "suitcss": "0.6.0"
-    , "suitcss-utils": "git+https://github.com/aaronj1335/utils.git#4d7c5345ec44d0ddbeab59c0f73889e161c47da0"
-
     }
 , "devDependencies":
     { "shelljs": "~0.3.0"
