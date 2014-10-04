@@ -32,7 +32,7 @@ module.exports =
       }
 
   , rework:
-      { use: 
+      { use:
         [ reworkLoader.plugins.imports,
         , reworkLoader.plugins.urls,
         , reworkLoader.plugins.stripLocalDefs(varMap),
