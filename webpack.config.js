@@ -10,6 +10,19 @@ var varMap = reworkLoader.makeVarMap('src/index.css');
 module.exports =
   { entry: path.join(__dirname, 'src/main.es6.js')
 
+  , resolve:
+    { packageMains:
+      [ 'webpack'
+      , 'browser'
+      , 'web'
+      , 'browserify'
+      , [ 'jam', 'main' ]
+      , 'style'
+      , 'main'
+      ]
+    }
+
+
   , output:
       { path: path.join(__dirname, 'dist')
       , filename: 'main.[hash].js'
