@@ -1,0 +1,18 @@
+@import "suitcss-base";
+@import "suitcss-components-grid";
+@import "suitcss-components-button";
+
+:root {
+  --Grid-gutter-size: 4px;
+}
+
+.Button--default {
+  background-color: #eee;
+  color: #555;
+  border-color: #bbb #bbb #999;
+  border-radius: 4px;
+}
+
+.Grid--withVerticalGutter > .Grid-cell {
+  padding-bottom: var(--Grid-gutter-size) !important;
+}

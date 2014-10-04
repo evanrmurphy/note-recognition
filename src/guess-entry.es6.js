@@ -3,6 +3,10 @@
 var ReactCreateClass = require('react/lib/ReactCompositeComponent').createClass
   , ReactDOM = require('react/lib/ReactDOM')
 
+require('suitcss-components-grid')
+require('suitcss-components-button')
+require('suitcss-utils-size')
+require('./index.css')
 require('./guess-entry.css')
 
 var Staff = require('./staff.es6.js')
@@ -30,9 +34,10 @@ module.exports =
               , checkMark = '\u2714'
               , xMark = '\u2717'
 
-            return div( {}
+            return div( {className: 'Grid--withGutter Grid--withVerticalGutter'}
                       , sortedNotes.map(note => {
-                          var className = 'GuessEntry-button'
+                          var className = 'Button Button--default'
+                                          + ' GuessEntry-button u-sizeFillAlt'
                             , text = note
 
                           if (guess === note && isGuessCorrect != null) {
@@ -45,7 +50,8 @@ module.exports =
                             }
                           }
 
-                          return button({className, onClick}, text)
+                          return div({className: 'Grid-cell u-size1of4'},
+                                   button({className, onClick}, text))
                         })
                       )
           }
