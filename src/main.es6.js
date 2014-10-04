@@ -10,8 +10,6 @@ var ReactRenderComponent = require('react/lib/ReactMount').renderComponent
   , sample = require('lodash.sample')
   , without = require('lodash.without')
 
-require('./index.css')
-
 var App = require('./app.es6.js')
   , Staff = require('./staff.es6.js')
 

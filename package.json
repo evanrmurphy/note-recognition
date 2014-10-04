@@ -23,7 +23,10 @@
     , "lodash.sample": "2.4.1"
     , "lodash.without": "2.4.1"
     , "rx": "2.3.10"
-    , "suitcss": "0.6.0"
+    , "suitcss-base": "0.7.0"
+    , "suitcss-components-grid": "2.0.1"
+    , "suitcss-components-button": "4.0.0"
+    , "suitcss-utils-size": "0.7.1"
     }
 , "devDependencies":
     { "shelljs": "~0.3.0"

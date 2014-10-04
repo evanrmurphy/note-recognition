@@ -1,4 +1,6 @@
-@import "suitcss";
+@import "suitcss-base";
+@import "suitcss-components-grid";
+@import "suitcss-components-button";
 
 :root {
   --Grid-gutter-size: 4px;

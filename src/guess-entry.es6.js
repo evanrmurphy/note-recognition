@@ -3,6 +3,10 @@
 var ReactCreateClass = require('react/lib/ReactCompositeComponent').createClass
   , ReactDOM = require('react/lib/ReactDOM')
 
+require('suitcss-components-grid')
+require('suitcss-components-button')
+require('suitcss-utils-size')
+require('./index.css')
 require('./guess-entry.css')
 
 var Staff = require('./staff.es6.js')
