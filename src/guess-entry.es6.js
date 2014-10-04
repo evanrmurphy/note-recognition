@@ -32,7 +32,7 @@ module.exports =
 
             return div( {}
                       , sortedNotes.map(note => {
-                          var className = 'Button GuessEntry-button u-size1of4'
+                          var className = 'Button Button--default GuessEntry-button u-size1of4'
                             , text = note
 
                           if (guess === note && isGuessCorrect != null) {
