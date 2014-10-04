@@ -22,7 +22,8 @@ var buildFilenameEscaped = buildFilename.replace(/\./g, '\\.')
 function isBuiltFilename(filename) { return builtFilenameRegex.test(filename) }
 
 function webpack() {
-  return exec(path.join(__dirname, '../node_modules/.bin/webpack --bail'))
+  return exec(path.join(__dirname
+                       ,'../node_modules/.bin/webpack --bail --optimize-minimize'))
 }
 
 function build() {
