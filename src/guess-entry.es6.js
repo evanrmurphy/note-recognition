@@ -30,9 +30,9 @@ module.exports =
               , checkMark = '\u2714'
               , xMark = '\u2717'
 
-            return div( {}
+            return div( {className: 'Grid--withGutter Grid--withVerticalGutter'}
                       , sortedNotes.map(note => {
-                          var className = 'Button Button--default GuessEntry-button u-size1of4'
+                          var className = 'Button Button--default GuessEntry-button u-sizeFillAlt'
                             , text = note
 
                           if (guess === note && isGuessCorrect != null) {
@@ -45,7 +45,8 @@ module.exports =
                             }
                           }
 
-                          return button({className, onClick}, text)
+                          return div({className: 'Grid-cell u-size1of4'},
+                                   button({className, onClick}, text))
                         })
                       )
           }
