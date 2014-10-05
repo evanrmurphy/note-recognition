@@ -32,7 +32,7 @@ notes.subscribe(_ => {
     setTimeout(() => {
        guesses.onCompleted()
        notes.onNext(sample(without(Staff.notes, notes.value)))
-    }, 1000))
+    }, 667))
 })
 
 notes.onNext(sample(Staff.notes))
