@@ -1,7 +1,6 @@
 'use strict'
 
-var ReactCreateClass = require('react/lib/ReactCompositeComponent').createClass
-  , ReactDOM = require('react/lib/ReactDOM')
+var React = require('react')
 
 require('suitcss-components-grid')
 require('suitcss-components-button')
@@ -14,7 +13,7 @@ var Staff = require('./staff.es6.js')
 var sortedNotes = Staff.notes.slice(0).sort()
 
 module.exports =
-  ReactCreateClass
+  React.createClass
     ( { getDefaultProps: function() {
           return { onGuess: _ => null
                  , guess: null
@@ -30,7 +29,7 @@ module.exports =
           function() {
             var {guess, isGuessCorrect} = this.props
               , {onClick} = this
-              , {div, button, span} = ReactDOM
+              , {div, button, span} = React.DOM
 
             return div( {className: 'Grid--withGutter Grid--withVerticalGutter'}
                       , sortedNotes.map(note => {

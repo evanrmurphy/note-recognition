@@ -1,10 +1,9 @@
 'use strict'
 
-var ReactCreateClass = require('react/lib/ReactCompositeComponent').createClass
-  , ReactDOM = require('react/lib/ReactDOM')
+var React = require('react')
 
 module.exports =
-  ReactCreateClass
+  React.createClass
     ( { getDefaultProps:
           function () {
             return {staffPosition: 4}
@@ -12,7 +11,7 @@ module.exports =
 
       , render:
           function() {
-            var {svg, g, path} = ReactDOM
+            var {svg, g, path} = React.DOM
               , y = 28 - (5 * this.props.staffPosition)
 
             return svg({y, width: 600, height: 299.13995, viewBox: '0 0 2000 2000'}
