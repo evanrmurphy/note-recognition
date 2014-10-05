@@ -34,12 +34,9 @@
     , "webpack-dev-server": "~1.6.5"
     , "webpack-traceur-loader": "~0.3.0"
     , "style-loader": "~0.8.0"
-    , "rework": "~1.0.1"
     , "rework-calc": "~1.1.0"
-    , "rework-npm": "~1.0.0"
     , "rework-custom-media": "~0.2.0"
     , "rework-vars": "~3.1.1"
-    , "rework-visit": "~1.0.0"
-    , "when": "~3.4.4"
+    , "rework-webpack-loader": "~0.0.0"
     }
 }
