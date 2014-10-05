@@ -1,7 +1,7 @@
 'use strict'
 
 var path = require('path')
-var reworkLoader = require('rework-loader');
+var reworkLoader = require('rework-webpack-loader');
 var reworkVars = require('rework-vars');
 var reworkCalc = require('rework-calc');
 var reworkCustomMedia = require('rework-custom-media');
@@ -31,7 +31,7 @@ module.exports =
   , module:
       { loaders:
           [ {test: /\.es6\.js$/, loader: 'webpack-traceur'}
-          , {test: /\.css$/, loader: 'style-loader!rework-loader'}
+          , {test: /\.css$/, loader: 'style-loader!rework-webpack-loader'}
           ]
       }
 

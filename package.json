@@ -40,6 +40,7 @@
     , "rework-custom-media": "~0.2.0"
     , "rework-vars": "~3.1.1"
     , "rework-visit": "~1.0.0"
+    , "rework-webpack-loader": "~0.0.0"
     , "when": "~3.4.4"
     }
 }
