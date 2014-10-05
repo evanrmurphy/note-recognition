@@ -8,7 +8,7 @@ var reworkCustomMedia = require('rework-custom-media');
 var varMap = reworkLoader.makeVarMap('src/index.css');
 
 module.exports =
-  { entry: path.join(__dirname, 'src/main.es6.js')
+  { entry: path.join(__dirname, 'src/index.es6.js')
 
   , resolve:
       { packageMains:
@@ -22,7 +22,7 @@ module.exports =
 
   , output:
       { path: path.join(__dirname, 'dist')
-      , filename: 'main.[hash].js'
+      , filename: 'index.[hash].js'
       }
 
   , devServer:

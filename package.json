@@ -6,7 +6,7 @@
     { "test": "echo \"Error: no test specified\" && exit 1"
     , "build": "./bin/build.js"
     , "deploy": "./bin/deploy.js"
-    , "dev": "./node_modules/.bin/webpack-dev-server --output-file 'main.js'"
+    , "dev": "./node_modules/.bin/webpack-dev-server --output-file 'index.js'"
     }
 , "repository":
     { "type": "git"
