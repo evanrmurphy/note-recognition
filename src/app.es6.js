@@ -1,7 +1,6 @@
 'use strict'
 
-var ReactCreateClass = require('react/lib/ReactCompositeComponent').createClass
-  , ReactDOM = require('react/lib/ReactDOM')
+var React = require('react')
 
 require('suitcss-components-grid')
 require('./index.css')
@@ -11,11 +10,11 @@ var Staff = require('./staff.es6.js')
   , GuessEntry = require('./guess-entry.es6.js')
 
 module.exports =
-  ReactCreateClass
+  React.createClass
     ( { render:
           function() {
             var {note, guess, onGuess, isGuessCorrect} = this.props
-              , {div} = ReactDOM
+              , {div} = React.DOM
 
             return div( {className: 'App Grid-cell--center'}
                       , Staff({note})

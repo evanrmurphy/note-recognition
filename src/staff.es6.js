@@ -1,7 +1,6 @@
 'use strict'
 
-var ReactCreateClass = require('react/lib/ReactCompositeComponent').createClass
-  , ReactDOM = require('react/lib/ReactDOM')
+var React = require('react')
   , range = require('lodash.range')
 
 var TrebleClef = require('./treble-clef.es6.js')
@@ -10,14 +9,14 @@ var TrebleClef = require('./treble-clef.es6.js')
 var notes = ['E', 'F', 'G', 'A', 'B', 'C', 'D']
 
 var Staff =
-  ReactCreateClass
+  React.createClass
     ( { getDefaultProps: function() {
           return {note: notes[0]}
         }
 
       , render:
           function() {
-            var {svg, rect} = ReactDOM
+            var {svg, rect} = React.DOM
               , topSpacing = 10
               , staffPosition = notes.indexOf(this.props.note)
 

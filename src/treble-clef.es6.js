@@ -1,17 +1,16 @@
 'use strict'
 
-var ReactCreateClass = require('react/lib/ReactCompositeComponent').createClass
-  , ReactDOM = require('react/lib/ReactDOM')
+var React = require('react')
 
 module.exports =
-  ReactCreateClass
+  React.createClass
     ( { getDefaultProps: function() {
           return {scale: 1}
         }
 
       , render:
           function() {
-            var {svg, path} = ReactDOM
+            var {svg, path} = React.DOM
               , width = 200 * this.props.scale
               , height = 450 * this.props.scale
 

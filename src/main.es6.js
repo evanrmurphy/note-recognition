@@ -1,11 +1,6 @@
 'use strict'
 
-// Don't want to `require` all of React (prefer to only include the specific
-// parts of it that we need), but removing this line causes an error in React's
-// code, so keep this for now with the hope of being able to remove it later
-require('react')
-
-var ReactRenderComponent = require('react/lib/ReactMount').renderComponent
+var React = require('react')
   , Rx = require('rx')
   , sample = require('lodash.sample')
   , without = require('lodash.without')
@@ -26,9 +21,9 @@ notes.subscribe(_ => {
       , onGuess = guess => {
           if (!isGuessCorrect) guesses.onNext(guess)
         }
-    ReactRenderComponent( App({note, guess, isGuessCorrect, onGuess})
-                        , document.body
-                        )
+    React.renderComponent( App({note, guess, isGuessCorrect, onGuess})
+                         , document.body
+                         )
   }
 
   renderApp()
