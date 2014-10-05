@@ -15,7 +15,9 @@ module.exports =
           ['webpack', 'browser', 'web', 'browserify', ['jam', 'main']
           ,'style' ,'main']
       , alias:
-          { rx: path.join(__dirname, 'node_modules/rx/dist/rx.all.min.js') }
+          { rx: path.join(__dirname, 'node_modules/rx/dist/rx.all.min.js')
+          , react: path.join(__dirname, 'node_modules/react/dist/react.min.js')
+          }
       }
 
   , output:
