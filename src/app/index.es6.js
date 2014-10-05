@@ -3,11 +3,11 @@
 var React = require('react')
 
 require('suitcss-components-grid')
+require('../index.css')
 require('./index.css')
-require('./app.css')
 
-var Staff = require('./staff.es6.js')
-  , GuessEntry = require('./guess-entry.es6.js')
+var Staff = require('../staff.es6.js')
+  , GuessEntry = require('../guess-entry/index.es6.js')
 
 module.exports =
   React.createClass

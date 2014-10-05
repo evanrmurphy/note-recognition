@@ -5,10 +5,10 @@ var React = require('react')
 require('suitcss-components-grid')
 require('suitcss-components-button')
 require('suitcss-utils-size')
+require('../index.css')
 require('./index.css')
-require('./guess-entry.css')
 
-var Staff = require('./staff.es6.js')
+var Staff = require('../staff.es6.js')
 
 var sortedNotes = Staff.notes.slice(0).sort()
 

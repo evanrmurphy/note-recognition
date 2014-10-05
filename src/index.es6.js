@@ -5,7 +5,7 @@ var React = require('react')
   , sample = require('lodash.sample')
   , without = require('lodash.without')
 
-var App = require('./app.es6.js')
+var App = require('./app/index.es6.js')
   , Staff = require('./staff.es6.js')
 
 var notes = new Rx.BehaviorSubject
