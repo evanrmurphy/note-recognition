@@ -9,6 +9,7 @@ require('../index.css')
 require('./index.css')
 
 var Staff = require('../staff.es6.js')
+  , constants = require('../constants.es6.js')
 
 var sortedNotes = Staff.notes.slice(0).sort()
 
@@ -17,6 +18,7 @@ module.exports =
     ( { getDefaultProps: function() {
           return { onGuess: _ => null
                  , guess: null
+                 , guessedAt: new Date
                  , isGuessCorrect: null
                  }
         }
@@ -27,9 +29,12 @@ module.exports =
 
       , render:
           function() {
-            var {guess, isGuessCorrect} = this.props
+            var {guess, guessedAt, isGuessCorrect} = this.props
               , {onClick} = this
               , {div, button, span} = React.DOM
+              , isWaitOnIncorrectGuessActive =
+                  (new Date) - guessedAt < constants.waitOnIncorrectGuess
+
 
             return div( {className: 'Grid--withGutter Grid--withVerticalGutter'}
                       , sortedNotes.map(note => {
@@ -41,7 +46,7 @@ module.exports =
                             if (isGuessCorrect) {
                               className += ' GuessEntry-button--correct'
                               text = span({className: 'fa fa-check'})
-                            } else {
+                            } else if (isWaitOnIncorrectGuessActive) {
                               className += ' GuessEntry-button--incorrect'
                               text = span({className: 'fa fa-times'})
                             }
