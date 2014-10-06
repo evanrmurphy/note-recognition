@@ -21,7 +21,7 @@ var Staff =
               , staffPosition = notes.indexOf(this.props.note)
 
             return svg( {version: '1.1', baseProfile: 'full', width: '100%'
-                        ,height: '100', xmlns: 'http://www.w3.org/2000/svg'
+                        ,height: '68', xmlns: 'http://www.w3.org/2000/svg'
                         }
 
                       , range(0 + topSpacing, 50 + topSpacing, 10).map

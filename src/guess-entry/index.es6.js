@@ -36,7 +36,8 @@ module.exports =
                   (new Date) - guessedAt < constants.waitOnIncorrectGuess
 
 
-            return div( {className: 'Grid--withGutter Grid--withVerticalGutter'}
+            return div( {className: 'GuessEntry Grid--withGutter'
+                                    + ' Grid--withVerticalGutter'}
                       , sortedNotes.map(note => {
                           var className = 'Button Button--default'
                                           + ' GuessEntry-button u-sizeFillAlt'
