@@ -6,7 +6,7 @@ require('suitcss-components-grid')
 require('../index.css')
 require('./index.css')
 
-var Staff = require('../staff.es6.js')
+var Staff = require('../staff/index.es6.js')
   , GuessEntry = require('../guess-entry/index.es6.js')
 
 module.exports =

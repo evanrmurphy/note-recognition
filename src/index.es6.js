@@ -6,7 +6,7 @@ var React = require('react')
   , without = require('lodash.without')
 
 var App = require('./app/index.es6.js')
-  , Staff = require('./staff.es6.js')
+  , Staff = require('./staff/index.es6.js')
   , constants = require('./constants.es6.js')
 
 var notes = new Rx.BehaviorSubject

@@ -3,10 +3,10 @@
 var React = require('react')
   , range = require('lodash.range')
 
-var TrebleClef = require('./treble-clef.es6.js')
-  , WholeNote = require('./whole-note.es6.js')
+var TrebleClef = require('../treble-clef.es6.js')
+  , WholeNote = require('../whole-note.es6.js')
 
-require('./staff.css')
+require('./index.css')
 
 var notes = ['E', 'F', 'G', 'A', 'B', 'C', 'D']
 

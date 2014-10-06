@@ -1,4 +1,4 @@
-@import "./index.css";
+@import "../index.css";
 
 .Staff {
   margin-top: var(--space-large-px);
