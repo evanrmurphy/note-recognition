@@ -3,6 +3,12 @@
 @import "suitcss-components-button";
 
 :root {
+  --space-small-px: 10px;
+  --space-medium-px: 15px;
+  --space-large-px: 20px;
+}
+
+:root {
   box-sizing: border-box;
   --Grid-gutter-size: 4px;
 }
