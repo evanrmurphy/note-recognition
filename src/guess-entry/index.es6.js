@@ -8,7 +8,7 @@ require('suitcss-utils-size')
 require('../index.css')
 require('./index.css')
 
-var Staff = require('../staff.es6.js')
+var Staff = require('../staff/index.es6.js')
   , constants = require('../constants.es6.js')
 
 var sortedNotes = Staff.notes.slice(0).sort()
@@ -36,7 +36,8 @@ module.exports =
                   (new Date) - guessedAt < constants.waitOnIncorrectGuess
 
 
-            return div( {className: 'Grid--withGutter Grid--withVerticalGutter'}
+            return div( {className: 'GuessEntry Grid--withGutter'
+                                    + ' Grid--withVerticalGutter'}
                       , sortedNotes.map(note => {
                           var className = 'Button Button--default'
                                           + ' GuessEntry-button u-sizeFillAlt'

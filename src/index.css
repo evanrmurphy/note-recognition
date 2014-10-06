@@ -3,7 +3,25 @@
 @import "suitcss-components-button";
 
 :root {
-  --Grid-gutter-size: 4px;
+  --space-small-px: 10px;
+  --space-medium-px: 15px;
+  --space-large-px: 20px;
+}
+
+:root {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+:root {
+  --Grid-gutter-size: var(--space-small-px);
+}
+
+.Grid--withVerticalGutter > .Grid-cell {
+  padding-bottom: var(--Grid-gutter-size) !important;
 }
 
 .Button--default {
@@ -11,8 +29,4 @@
   color: #555;
   border-color: #bbb #bbb #999;
   border-radius: 4px;
-}
-
-.Grid--withVerticalGutter > .Grid-cell {
-  padding-bottom: var(--Grid-gutter-size) !important;
 }

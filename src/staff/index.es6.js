@@ -3,8 +3,10 @@
 var React = require('react')
   , range = require('lodash.range')
 
-var TrebleClef = require('./treble-clef.es6.js')
-  , WholeNote = require('./whole-note.es6.js')
+var TrebleClef = require('../treble-clef.es6.js')
+  , WholeNote = require('../whole-note.es6.js')
+
+require('./index.css')
 
 var notes = ['E', 'F', 'G', 'A', 'B', 'C', 'D']
 
@@ -21,7 +23,8 @@ var Staff =
               , staffPosition = notes.indexOf(this.props.note)
 
             return svg( {version: '1.1', baseProfile: 'full', width: '100%'
-                        ,height: '100', xmlns: 'http://www.w3.org/2000/svg'
+                        ,height: '68', xmlns: 'http://www.w3.org/2000/svg'
+                        ,className: 'Staff'
                         }
 
                       , range(0 + topSpacing, 50 + topSpacing, 10).map

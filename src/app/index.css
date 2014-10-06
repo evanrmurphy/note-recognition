@@ -1,3 +1,6 @@
+@import "../index.css";
+
 .App {
   max-width: 600px;
+  padding: 0 var(--space-large-px);
 }
