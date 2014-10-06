@@ -3,7 +3,12 @@
 @import "suitcss-components-button";
 
 :root {
+  box-sizing: border-box;
   --Grid-gutter-size: 4px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 .Button--default {
