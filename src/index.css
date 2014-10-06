@@ -10,11 +10,18 @@
 
 :root {
   box-sizing: border-box;
-  --Grid-gutter-size: 4px;
 }
 
 *, *:before, *:after {
   box-sizing: inherit;
+}
+
+:root {
+  --Grid-gutter-size: var(--space-small-px);
+}
+
+.Grid--withVerticalGutter > .Grid-cell {
+  padding-bottom: var(--Grid-gutter-size) !important;
 }
 
 .Button--default {
@@ -22,8 +29,4 @@
   color: #555;
   border-color: #bbb #bbb #999;
   border-radius: 4px;
-}
-
-.Grid--withVerticalGutter > .Grid-cell {
-  padding-bottom: var(--Grid-gutter-size) !important;
 }
