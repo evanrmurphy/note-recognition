@@ -17,7 +17,7 @@ module.exports =
               , scale = this.props.scale
               , width = 600 * scale
               , height = 299.13995 * scale
-              , x = document.documentElement.clientWidth/2 - (205 * scale)
+              , x = this.props.staffWidth/2 - (190 * scale)
               , y = (28 - (5 * this.props.staffPosition)) * scale
 
             return svg({x, y, width, height, viewBox: '0 0 2000 2000'}
