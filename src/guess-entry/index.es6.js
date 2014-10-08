@@ -53,7 +53,7 @@ module.exports =
                             }
                           }
 
-                          return div({className: 'Grid-cell u-size1of4'},
+                          return div({className: 'Grid-cell u-sm-size1of4 u-md-size1of7'},
                                    button({className, onClick}, text))
                         })
                       )
