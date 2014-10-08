@@ -1,11 +1,29 @@
 @import "suitcss-base";
+@import "suitcss-utils-size";
 @import "suitcss-components-grid";
 @import "suitcss-components-button";
+
+@custom-media --sm-viewport (max-width:460px);
+@custom-media --md-viewport (min-width:460px);
 
 :root {
   --space-small-px: 10px;
   --space-medium-px: 15px;
   --space-large-px: 20px;
+}
+
+/* Copied from `node_modules/suitcss-utils-size/lib/size-sm.css`
+   This doesn't work unless redefined here, not sure why */
+@media (--sm-viewport) {
+  .u-sm-size1of4 {
+    width: 25% !important;
+  }
+}
+
+@media (--md-viewport) {
+  .u-md-size1of7 {
+    width: calc(100% * 1 / 7) !important;
+  }
 }
 
 :root {
