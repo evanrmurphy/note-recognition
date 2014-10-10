@@ -37,7 +37,7 @@ module.exports =
 
 
             return div( {className: 'GuessEntry Grid--withGutter'
-                                    + ' Grid--withVerticalGutter'
+                                    + ' Grid--md-withVerticalGutter'
                                     + ' Grid--alignCenter'}
                       , sortedNotes.map(note => {
                           var className = 'Button Button--default'

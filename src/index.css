@@ -24,6 +24,10 @@
   .u-md-size1of7 {
     width: calc(100% * 1 / 7) !important;
   }
+
+  .Grid--md-withVerticalGutter > .Grid-cell {
+    padding-bottom: var(--Grid-gutter-size) !important;
+  }
 }
 
 :root {
@@ -36,10 +40,6 @@
 
 :root {
   --Grid-gutter-size: var(--space-small-px);
-}
-
-.Grid--withVerticalGutter > .Grid-cell {
-  padding-bottom: var(--Grid-gutter-size) !important;
 }
 
 .Button--default {
