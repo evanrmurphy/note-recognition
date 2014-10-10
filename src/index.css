@@ -24,6 +24,10 @@
   .u-md-size1of7 {
     width: calc(100% * 1 / 7) !important;
   }
+
+  .Grid--md-withVerticalGutter > .Grid-cell {
+    padding-bottom: var(--Grid-gutter-size) !important;
+  }
 }
 
 :root {
@@ -38,13 +42,9 @@
   --Grid-gutter-size: var(--space-small-px);
 }
 
-.Grid--withVerticalGutter > .Grid-cell {
-  padding-bottom: var(--Grid-gutter-size) !important;
-}
-
 .Button--default {
   background-color: #eee;
   color: #555;
   border-color: #bbb #bbb #999;
-  border-radius: 4px;
+  border-radius: 12px;
 }
