@@ -2,5 +2,5 @@
 
 .App {
   max-width: 600px;
-  padding: 0 var(--space-large-px);
+  padding: var(--space-large-px);
 }

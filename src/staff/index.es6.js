@@ -6,8 +6,6 @@ var React = require('react')
 var TrebleClef = require('../treble-clef.es6.js')
   , WholeNote = require('../whole-note.es6.js')
 
-require('./index.css')
-
 var notes = ['E', 'F', 'G', 'A', 'B', 'C', 'D']
 
 var Staff =
