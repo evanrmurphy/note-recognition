@@ -10,13 +10,21 @@
   --space-small-px: 10px;
   --space-medium-px: 15px;
   --space-large-px: 20px;
+
+  --Button-border-width: 1px;
 }
 
-/* Copied from `node_modules/suitcss-utils-size/lib/size-sm.css`
-   This doesn't work unless redefined here, not sure why */
 @media (--sm-viewport) {
+  /* Copied from `node_modules/suitcss-utils-size/lib/size-sm.css`
+     This doesn't work unless redefined here, not sure why */
   .u-sm-size1of4 {
     width: 25% !important;
+  }
+
+  /* Inspired by SUIT CSS `.ButtonGroup--borderCollapse`:
+     https://github.com/suitcss/components-button-group/blob/ed4a8bf6b4a157344953a8f6aba6fdb64563aec6/button-group.plugin.css#L18 */
+  .Button--sm-border-collapse {
+    margin-top: calc(var(--Button-border-width) * -1px);
   }
 }
 

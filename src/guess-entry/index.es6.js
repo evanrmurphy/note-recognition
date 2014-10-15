@@ -40,7 +40,7 @@ module.exports =
                                     + ' Grid--md-withVerticalGutter'
                                     + ' Grid--alignCenter'}
                       , sortedNotes.map(note => {
-                          var className = 'Button Button--default'
+                          var className = 'Button Button--default Button--sm-border-collapse'
                                           + ' GuessEntry-button u-sizeFillAlt'
                             , text = note
 
