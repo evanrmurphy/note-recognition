@@ -18,8 +18,17 @@ var Staff =
           return {width: document.documentElement.clientWidth}
         }
 
-      , componentDidMount: function() {
+      , updateWidthState: function() {
           this.setState({width: this.refs.Staff.getDOMNode().clientWidth})
+        }
+
+      , componentDidMount: function() {
+          this.updateWidthState()
+          window.addEventListener('resize', this.updateWidthState)
+        }
+
+      , componentWillUnmount: function() {
+          window.removeEventListener('resize', this.updateWidthState)
         }
 
       , render:
