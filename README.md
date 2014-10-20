@@ -9,6 +9,15 @@ and [webpack](http://webpack.github.io/).
 
 **[Live demo](http://sightreadingmastery.com/note-recognition/)**
 
+## Running it locally
+
+1. Install [Node and npm](http://nodejs.org/) if you don't have them already
+2. Clone this repo: `git clone git@github.com:evanrmurphy/note-recognition.git`
+3. `cd note-recognition`
+4. Install dependencies: `npm install`
+5. Start development server: `npm run dev`
+6. Check out [http://localhost:8080/](http://localhost:8080/), you should be good to go!
+
 ## Coding style
 
 The JavaScript is written comma-first with semicolons only where necessary. I
