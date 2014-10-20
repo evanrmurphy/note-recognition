@@ -7,6 +7,8 @@ A responsive web app built on
 (http://facebook.github.io/react/), SVG, [SUIT CSS](http://suitcss.github.io/)
 and [webpack](http://webpack.github.io/).
 
+**[Live demo](http://sightreadingmastery.com/note-recognition/)**
+
 ## Coding style
 
 The JavaScript is written comma-first with semicolons only where necessary. I
