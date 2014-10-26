@@ -1,13 +1,13 @@
 # Note recognition
 
+**[Live demo](http://sightreadingmastery.com/note-recognition/)**
+
 Music education app to help learn the notes of the staff.
 
 A responsive web app built on
 [RxJS](http://reactive-extensions.github.io/RxJS/), [React]
 (http://facebook.github.io/react/), SVG, [SUIT CSS](http://suitcss.github.io/)
 and [webpack](http://webpack.github.io/).
-
-**[Live demo](http://sightreadingmastery.com/note-recognition/)**
 
 ## Running it locally
 
