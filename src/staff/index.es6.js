@@ -39,16 +39,18 @@ var Staff =
               , lineDistance = staffHeight / 5
               , topSpacing = 10 * scale
               , staffPosition = notes.indexOf(this.props.note)
+              , staffLines =
+                  range(0 + topSpacing, staffHeight + topSpacing
+                       ,lineDistance).map(
+                           y => rect({y, width: '100%', height: 1 * scale, fill: 'black'})
+                       )
 
             return svg( {version: '1.1', baseProfile: 'full', width: '100%'
                         ,height: 68 * scale, xmlns: 'http://www.w3.org/2000/svg'
                         ,className: 'Staff', ref: 'Staff'
                         }
 
-                      , range(0 + topSpacing, staffHeight + topSpacing
-                             ,lineDistance).map(y =>
-                          rect({y, width: '100%', height: 1 * scale, fill: 'black'}))
-
+                      , staffLines
                       , TrebleClef({scale: .15 * scale})
                       , WholeNote({scale, staffPosition, staffWidth: this.state.width})
                       )
