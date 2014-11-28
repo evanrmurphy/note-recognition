@@ -42,7 +42,8 @@ var Staff =
               , staffLines =
                   range(0 + topSpacing, staffHeight + topSpacing
                        ,lineDistance).map(
-                           y => rect({y, width: '100%', height: 1 * scale, fill: 'black'})
+                         y => rect({y, width: '100%', height: 1 * scale
+                                   ,fill: 'black'})
                        )
 
             return svg( {version: '1.1', baseProfile: 'full', width: '100%'
