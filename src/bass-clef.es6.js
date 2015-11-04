@@ -7,7 +7,7 @@ window.React = React
 module.exports =
   React.createClass
     ( { getDefaultProps: function() {
-          return {scale: 1}
+          return {scale: 1, onClick: _ => null}
         }
 
       , render:
@@ -19,6 +19,7 @@ module.exports =
               , y = -6.5
 
             return svg({viewBox: `${x} ${y} ${width} ${height}`
+                       ,onClick: this.props.onClick
                        ,dangerouslySetInnerHTML: {__html: `
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->

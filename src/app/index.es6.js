@@ -13,11 +13,11 @@ module.exports =
   React.createClass
     ( { render:
           function() {
-            var {clef, note, guess, guessedAt, onGuess, isGuessCorrect} = this.props
+            var {note, guess, guessedAt, onGuess,isGuessCorrect} = this.props
               , {div} = React.DOM
 
             return div( {className: 'App Grid-cell--center'}
-                      , Staff({note, clef})
+                      , Staff({note})
                       , GuessEntry({guess, guessedAt, onGuess, isGuessCorrect})
                       )
           }
