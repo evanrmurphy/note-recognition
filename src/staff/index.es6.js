@@ -15,11 +15,11 @@ var Staff =
         }
 
       , getInitialState: function() {
-          return {width: document.documentElement.clientWidth}
+          return {width: document.documentElement.getBoundingClientRect().width}
         }
 
       , updateWidthState: function() {
-          this.setState({width: this.refs.Staff.getDOMNode().clientWidth})
+          this.setState({width: this.refs.Staff.getDOMNode().getBoundingClientRect().width})
         }
 
       , componentDidMount: function() {
