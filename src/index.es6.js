@@ -10,6 +10,7 @@ var App = require('./app/index.es6.js')
   , constants = require('./constants.es6.js')
 
 var notes = new Rx.BehaviorSubject
+  , clef = 'bass'
 
 notes.subscribe(_ => {
   var guesses = new Rx.BehaviorSubject
@@ -24,7 +25,7 @@ notes.subscribe(_ => {
       , onGuess = guess => {
           if (!isGuessCorrect) guesses.onNext(guess)
         }
-    React.renderComponent( App({note, guess, guessedAt, isGuessCorrect
+    React.renderComponent( App({clef, note, guess, guessedAt, isGuessCorrect
                                ,onGuess})
                          , document.body
                          )
@@ -36,10 +37,10 @@ notes.subscribe(_ => {
   correctGuesses.subscribe(_ =>
     setTimeout(() => {
       guesses.onCompleted()
-      notes.onNext(sample(without(Staff.notes, notes.value)))
+      notes.onNext(sample(without(Staff.notes(clef), notes.value)))
     }, constants.waitOnCorrectGuess))
   incorrectGuesses.subscribe(_ =>
     setTimeout(() => renderApp(), constants.waitOnIncorrectGuess))
 })
 
-notes.onNext(sample(Staff.notes))
+notes.onNext(sample(Staff.notes(clef)))

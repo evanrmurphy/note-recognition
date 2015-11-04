@@ -4,14 +4,18 @@ var React = require('react')
   , range = require('lodash.range')
 
 var TrebleClef = require('../treble-clef.es6.js')
+  , BassClef = require('../bass-clef.es6.js')
   , WholeNote = require('../whole-note.es6.js')
 
-var notes = ['E', 'F', 'G', 'A', 'B', 'C', 'D']
+function notes(clef) {
+  return (clef === 'treble' ? ['E', 'F', 'G', 'A', 'B', 'C', 'D'] : ['G', 'A', 'B', 'C', 'D', 'E', 'F'])
+}
 
 var Staff =
   React.createClass
     ( { getDefaultProps: function() {
-          return {note: notes[0]}
+          return {clef: 'treble',
+                  note: notes('treble')[0]}
         }
 
       , getInitialState: function() {
@@ -38,13 +42,14 @@ var Staff =
               , staffHeight = 50 * scale
               , lineDistance = staffHeight / 5
               , topSpacing = 10 * scale
-              , staffPosition = notes.indexOf(this.props.note)
+              , staffPosition = notes(this.props.clef).indexOf(this.props.note)
               , staffLines =
                   range(0 + topSpacing, staffHeight + topSpacing
                        ,lineDistance).map(
                          y => rect({y, width: '100%', height: 1 * scale
                                    ,fill: 'black'})
                        )
+              , clef = (this.props.clef === 'treble' ? TrebleClef({scale: .15 * scale}) : BassClef({scale, staffWidth: this.state.width}))
 
             return svg( {version: '1.1', baseProfile: 'full', width: '100%'
                         ,height: 68 * scale, xmlns: 'http://www.w3.org/2000/svg'
@@ -52,7 +57,7 @@ var Staff =
                         }
 
                       , staffLines
-                      , TrebleClef({scale: .15 * scale})
+                      , clef
                       , WholeNote({scale, staffPosition, staffWidth: this.state.width})
                       )
           }

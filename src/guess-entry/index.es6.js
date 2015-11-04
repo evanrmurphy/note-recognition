@@ -11,7 +11,7 @@ require('./index.css')
 var Staff = require('../staff/index.es6.js')
   , constants = require('../constants.es6.js')
 
-var sortedNotes = Staff.notes.slice(0).sort()
+var sortedNotes = Staff.notes().slice(0).sort()
 
 module.exports =
   React.createClass
