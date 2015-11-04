@@ -2,7 +2,7 @@
 
 var React = require('react')
 
-window.React = React
+require('./index.css')
 
 module.exports =
   React.createClass
@@ -20,6 +20,7 @@ module.exports =
 
             return svg({viewBox: `${x} ${y} ${width} ${height}`
                        ,onClick: this.props.onClick
+                       ,className: 'BassClef'
                        ,dangerouslySetInnerHTML: {__html: `
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
