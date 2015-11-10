@@ -4,13 +4,3 @@
   max-width: 600px;
   padding: var(--space-large-px);
 }
-
-.App-tip {
-  font-size: var(--space-small-px);
-  text-align: center;
-  color: #444;
-}
-
-.App-tip.hidden {
-  display: none;
-}
