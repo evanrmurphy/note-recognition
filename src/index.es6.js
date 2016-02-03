@@ -35,7 +35,6 @@ notes.subscribe(_ => {
   guesses.subscribe(renderApp, null, renderApp)
   correctGuesses.subscribe(_ =>
     setTimeout(() => {
-      guesses.onCompleted()
       notes.onNext(sample(without(Staff.notes(), notes.value)))
     }, constants.waitOnCorrectGuess))
   incorrectGuesses.subscribe(_ =>
