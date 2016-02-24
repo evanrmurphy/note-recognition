@@ -23,8 +23,14 @@ module.exports =
                  }
         }
 
+      , getInitialState: function() {
+          return {useSolfege: /[?&]solfege/.test(window.location.search)}
+        }
+
       , onClick: function(event) {
-          this.props.onGuess(event.target.textContent)
+          this.props.onGuess(this.state.useSolfege
+                               ? constants.letterNamesBySolfege[event.target.textContent]
+                               : event.target.textContent)
         }
 
       , render:
@@ -42,7 +48,7 @@ module.exports =
                       , sortedNotes.map(note => {
                           var className = 'Button Button--default Button--sm-border-collapse'
                                           + ' GuessEntry-button u-sizeFillAlt'
-                            , text = note
+                            , text = (this.state.useSolfege ? constants.solfegeByLetterNames[note] : note)
 
                           if (guess === note && isGuessCorrect != null) {
                             if (isGuessCorrect) {

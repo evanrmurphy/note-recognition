@@ -19,6 +19,7 @@
 , "homepage": "https://github.com/evanrmurphy/note-recognition"
 , "dependencies":
     { "react": "0.11.2"
+    , "lodash.invert": "2.4.1"
     , "lodash.range": "2.4.1"
     , "lodash.sample": "2.4.1"
     , "lodash.without": "2.4.1"
