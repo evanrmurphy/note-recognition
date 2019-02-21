@@ -1,4 +1,4 @@
-# Note recognition #
+# Note Recognition #
 
 ## THIS CODE HAS A NEW HOME ##
 
