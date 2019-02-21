@@ -2,7 +2,7 @@
 
 Learn to Sight Read Music — One Note at a Time
 
-## This Code No Longer Lives Here ##
+## :warning: The Code for this app no longer lives here ##
 
 I rewrote this app so that I could more easily introduce new features and so that it more seamlessly integrates with the product that it was built for, [SightReadingMastery](https://sightreadingmastery.com/).
 
